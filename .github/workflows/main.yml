@@ -1,0 +1,43 @@
+#################################################
+# Run Java Super Linter against the code base #
+#################################################
+
+name: Java Super Linter
+
+on: [push, pull_request]
+
+jobs:
+  run-java-linters:
+    name: Java Super Linter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17 # Specify your required Java version
+          distribution: temurin
+
+      - name: Run SpotBugs (Static Code Analysis)
+        run: |
+          mkdir -p spotbugs-reports
+          ./gradlew spotbugsMain
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Checkstyle
+        run: |
+          mkdir -p checkstyle-reports
+          ./gradlew checkstyleMain
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run PMD (Java Code Rules)
+        run: |
+          mkdir -p pmd-reports
+          ./gradlew pmdMain
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
