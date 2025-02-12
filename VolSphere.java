@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
-* This program will calculate the volume of a sphere.
+* This program will calculate the volume of the sphere.
 *
 * @author Santiago Hewett
 * @version 1.0
