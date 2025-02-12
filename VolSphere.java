@@ -1,14 +1,12 @@
 import java.util.Scanner;
 
 /**
-* This program display different math problems to the user.
+* This program will calculate the volume of a sphere.
 *
 * @author Santiago Hewett
 * @version 1.0
 * @since   2025/02/07
 */
-
-import java.util.Scanner;
 
 final class VolSphere {
 
@@ -28,9 +26,10 @@ final class VolSphere {
      *
      * @param args Unused.
      */
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         // Greet the user and ask for radius of the sphere
-        System.out.println("Welcome, this program was made to calculate the volume of a sphere");
+        System.out.print("Welcome, this program was made to ");
+        System.out.println("calculate the volume of a sphere");
         System.out.println("Please enter the radius of your sphere (cm): ");
 
         // Use the scanner to get user input
@@ -40,21 +39,24 @@ final class VolSphere {
         // converting string to double
         final double radDouble = Double.parseDouble(radString);
 
-        // If radius is less than or equal to 0, tell the user to input a new number
+        // If radius is less than or equal to 0,
+        // tell the user to input a new number
         if (radDouble <= 0) {
-            System.out.println("The radius can not be negative or 0");
+            System.out.println("The radius can not be negative");
         } else {
             // Calculate the volume of sphere
-            final double volume = (4d / 3d) * (Math.PI) * (Math.pow(radDouble, 3));
+            final double volume = (4d / 3d) * (Math.PI)
+* Math.pow(radDouble, 3);
 
-            // Display the volume of the sphere to user, rounded to 2 decimal places
+            // Display the volume of the sphere to user,
+            // rounded to 2 decimal places
             System.out.print("The volume of the sphere with the radius of, ");
             System.out.print(radString + "cm, is ");
             System.out.format("%.2f", volume);
             System.out.println("cm^3");
         }
 
-        //Close Scanner
+        // Close Scanner
         scanner.close();
     }
 }
