@@ -41,8 +41,8 @@ final class VolSphere {
 
         // If radius is less than or equal to 0,
         // tell the user to input a new number
-        if (radDouble <= 0) {
-            System.out.println("The radius can not be negative");
+        if (radDouble < 0) {
+            System.out.println("The radius can not be negative.");
         } else {
             // Calculate the volume of sphere
             final double volume = (4d / 3d) * (Math.PI)
